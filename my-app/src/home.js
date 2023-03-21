@@ -1,27 +1,27 @@
 import { useState, useEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import {createTheme} from "@mui/material/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
-import Container from "@material-ui/core/Container";
+import { Toolbar } from '@mui/material';
+import { Typography } from '@mui/material';
+import { Avatar } from '@mui/material';
+import { Container } from '@mui/material';
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import { CardContent } from '@mui/material';
 import { Paper, CardActionArea, CardMedia, Grid, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, CircularProgress } from "@material-ui/core";
 import cblogo from "./logo.jpg";
 import image from "./farmer.jpg";
 import { DropzoneArea } from 'material-ui-dropzone';
-import { common } from '@material-ui/core/colors';
-import Clear from '@material-ui/icons/Clear';
+import ClearIcon from '@mui/icons-material/Clear';
+
 import axios from 'axios'
 
 
 
 const ColorButton = withStyles((theme) => ({
   root: {
-    color: theme.palette.getContrastText(common.white),
-    backgroundColor: common.white,
+    color: theme.palette.getContrastText("#ffffff"),
+    backgroundColor: "#ffffff",
     '&:hover': {
       backgroundColor: '#ffffff7a',
     },
@@ -231,7 +231,7 @@ export const ImageUpload = () => {
           spacing={2}
         >
           <Grid item xs={12}>
-            <Card className={`${classes.imageCard} ${!image ? classes.imageCardEmpty : ''}`}>
+            <div className={`${classes.imageCard} ${!image ? classes.imageCardEmpty : ''}`}>
               {image && <CardActionArea>
                 <CardMedia
                   className={classes.media}
@@ -274,12 +274,12 @@ export const ImageUpload = () => {
                   Processing
                 </Typography>
               </CardContent>}
-            </Card>
+            </div>
           </Grid>
           {data &&
             <Grid item className={classes.buttonGrid} >
 
-              <ColorButton variant="contained" className={classes.clearButton} color="primary" component="span" size="large" onClick={clearData} startIcon={<Clear fontSize="large" />}>
+              <ColorButton variant="contained" className={classes.clearButton} color="primary" component="span" size="large" onClick={clearData} startIcon={<ClearIcon fontSize="large" />}>
                 Clear
               </ColorButton>
             </Grid>}
